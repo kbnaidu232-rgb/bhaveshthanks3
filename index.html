@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You For My Birthday Wishes</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+text-align:center;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+overflow-x:hidden;
+cursor:url("https://cdn-icons-png.flaticon.com/32/685/685352.png"),auto;
+}
+
+.container{
+padding:20px;
+max-width:900px;
+margin:auto;
+}
+
+h1{
+color:white;
+font-size:2.3em;
+}
+
+p{
+color:white;
+font-size:1.15em;
+line-height:1.6;
+margin:15px auto;
+}
+
+button{
+margin-top:30px;
+padding:15px 30px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:#ff4081;
+color:white;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#cake-area{
+display:none;
+margin-top:50px;
+}
+
+/* Chocolate Cake */
+
+.cake{
+position:relative;
+margin:50px auto;
+width:220px;
+height:130px;
+transform-style:preserve-3d;
+animation:rotateCake 7s infinite linear;
+}
+
+@keyframes rotateCake{
+0%{transform:rotateY(0deg)}
+100%{transform:rotateY(360deg)}
+}
+
+.layer{
+position:absolute;
+width:220px;
+height:50px;
+border-radius:12px;
+}
+
+/* Chocolate colors */
+
+.layer1{
+background:#4e2a1e;
+bottom:0;
+}
+
+.layer2{
+background:#6b3a28;
+bottom:40px;
+}
+
+.layer3{
+background:#8b4a32;
+bottom:80px;
+}
+
+/* Chocolate drip icing */
+
+.layer3::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:15px;
+background:#2e150f;
+border-radius:10px;
+}
+
+/* Candles */
+
+.candle{
+position:absolute;
+width:10px;
+height:30px;
+background:white;
+top:-30px;
+border-radius:3px;
+}
+
+.candle:nth-child(1){left:45px}
+.candle:nth-child(2){left:105px}
+.candle:nth-child(3){left:165px}
+
+/* Flame */
+
+.flame{
+width:10px;
+height:15px;
+background:orange;
+border-radius:50%;
+position:absolute;
+top:-15px;
+left:0;
+animation:flicker 0.2s infinite alternate;
+}
+
+@keyframes flicker{
+from{transform:scale(1);opacity:0.8;}
+to{transform:scale(1.2);opacity:1;}
+}
+
+/* Confetti */
+
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+top:-10px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(100vh) rotate(360deg);
+}
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+h1{font-size:1.8em;}
+
+p{
+font-size:1em;
+padding:0 10px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎉 Thank You Everyone! 🎉</h1>
+
+<p>
+I just wanted to take a moment to say a heartfelt thank you to everyone who sent me birthday wishes. Your kind messages, calls, and posts truly made my day incredibly special and memorable.
+</p>
+
+<p>
+To my amazing friends, thank you for the laughter, the memories, and the wonderful wishes. Each message meant so much to me and reminded me how lucky I am to have such supportive people in my life.
+</p>
+
+<p>
+To my loving family, thank you for always being there for me with your love, encouragement, and blessings. Your support means everything to me and I am truly grateful.
+</p>
+
+<p>
+Every wish, message, and kind word made my birthday brighter and filled my heart with happiness. I appreciate each and every one of you who took the time to celebrate with me.
+</p>
+
+<p>
+Thank you all once again for making my birthday so special. I’m sending my gratitude and love back to all of you! ❤️
+</p>
+
+<button onclick="showCake()">Click for a Surprise 🎁</button>
+
+<div id="cake-area">
+
+<h2 style="color:white;">🍫 Chocolate Celebration Cake 🍫</h2>
+
+<div class="cake">
+
+<div class="layer layer1"></div>
+<div class="layer layer2"></div>
+<div class="layer layer3">
+
+<div class="candle"><div class="flame"></div></div>
+<div class="candle"><div class="flame"></div></div>
+<div class="candle"><div class="flame"></div></div>
+
+</div>
+
+</div>
+
+<p style="color:white;">
+Here's a virtual slice of chocolate cake to celebrate together! 🎂  
+Thank you again for all the love and wonderful birthday wishes! 🎉
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function showCake(){
+document.getElementById("cake-area").style.display="block";
+}
+
+/* Confetti generator */
+
+function createConfetti(){
+
+const confetti=document.createElement("div");
+confetti.classList.add("confetti");
+
+confetti.style.left=Math.random()*100+"vw";
+confetti.style.backgroundColor="hsl("+Math.random()*360+",100%,50%)";
+confetti.style.animationDuration=(Math.random()*3+2)+"s";
+
+document.body.appendChild(confetti);
+
+setTimeout(()=>{
+confetti.remove();
+},5000);
+
+}
+
+setInterval(createConfetti,150);
+
+</script>
+
+</body>
+</html>
